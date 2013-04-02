@@ -52,13 +52,20 @@ describe Kitchen::Suite do
     suite.roles_path.must_be_nil
   end
 
+  it "returns nil given no cookbooks_path" do
+    suite.cookbooks_path.must_be_nil
+  end
+
   it "returns attributes from constructor" do
     opts.merge!({ :attributes => { :a => 'b' }, :data_bags_path => 'crazy',
-      :roles_path => 'town' })
+        :roles_path => 'town',
+        :cookbooks_path => 'monkey'
+      })
     suite.name.must_equal 'suitezy'
     suite.run_list.must_equal ['doowah']
     suite.attributes.must_equal({ :a => 'b' })
     suite.data_bags_path.must_equal 'crazy'
     suite.roles_path.must_equal 'town'
+    suite.cookbooks_path.must_equal 'monkey'
   end
 end

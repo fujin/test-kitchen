@@ -44,6 +44,10 @@ module Kitchen
     #   not exist
     attr_reader :roles_path
 
+    # @return [Array] local path to the suite's cookbooks, or nil if one does
+    #   not exist
+    attr_reader :cookbooks_path
+
     # Constructs a new suite.
     #
     # @param [Hash] options configuration for a new suite
@@ -63,6 +67,7 @@ module Kitchen
       @excludes = options[:excludes]     || Array.new
       @data_bags_path = options[:data_bags_path]
       @roles_path = options[:roles_path]
+      @cookbooks_path = options[:cookbooks_path]
     end
 
     private
